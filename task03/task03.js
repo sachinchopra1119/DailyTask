@@ -1,22 +1,20 @@
 let todo = [];
 
-// Add Task function
 function addTask() {
   let task = document.getElementById("taskInput").value;
   if (task) {
     todo.push(task);
-    document.getElementById("taskInput").value = ""; // Clear input field
+    document.getElementById("taskInput").value = "";
     alert("Task added!");
-    listTasks(); // Refresh the task list
+    listTasks();
   } else {
     alert("Please enter a task!");
   }
 }
 
-// List Tasks function
 function listTasks() {
   let taskUl = document.getElementById("taskUl");
-  taskUl.innerHTML = ""; // Clear the current task list before displaying the new one
+  taskUl.innerHTML = "";
 
   if (todo.length === 0) {
     taskUl.innerHTML = "<li>No tasks available.</li>";
@@ -29,17 +27,15 @@ function listTasks() {
   }
 }
 
-// Delete Task function
 function deleteTask() {
   let index = document.getElementById("deleteInput").value;
-  index = parseInt(index); // Convert to number
+  index = parseInt(index);
 
   if (isNaN(index) || index < 0 || index >= todo.length) {
     alert("Invalid index.");
   } else {
     todo.splice(index, 1);
-    alert("Task deleted!");
-    listTasks(); // Refresh the task list
+    listTasks();
   }
-  document.getElementById("deleteInput").value = ""; // Clear the input field
+  document.getElementById("deleteInput").value = "";
 }
